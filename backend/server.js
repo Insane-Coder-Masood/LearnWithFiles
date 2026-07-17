@@ -10,12 +10,20 @@ const PORT = process.env.PORT || 3001;
 
 
 
+const allowedOrigins = [
+  "https://learnwithfiles.vercel.app",
+  "http://localhost:5173"
+];
+
 app.use(cors({
-
-  origin: "https://learnwithfiles.vercel.app",
-
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
-
 }));
 
 
