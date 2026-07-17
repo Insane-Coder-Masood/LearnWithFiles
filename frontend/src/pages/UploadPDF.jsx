@@ -61,7 +61,7 @@ const UploadPDF = () => {
     formData.append('caption', caption)
 
     try {
-      const response = await fetch('http://localhost:3001/api/pdfs/upload', {
+      const response = await fetch('http://learn-with-files.vercel.app/api/pdfs/upload', {
         method: 'POST',
         body: formData,
       })

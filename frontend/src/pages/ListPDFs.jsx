@@ -13,7 +13,7 @@ const ListPDFs = () => {
 
   const fetchPDFs = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/pdfs/all')
+      const response = await fetch('http://learn-with-files.vercel.app/api/pdfs/all')
       if (!response.ok) throw new Error('Failed to fetch PDFs')
       const data = await response.json()
       setPdfs(data.pdfs || [])
